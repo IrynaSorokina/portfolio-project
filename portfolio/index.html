@@ -103,7 +103,7 @@
           <div class="edits__container">
             <h2 class="edits__title title">my best edits</h2>
             <div class="edits__arrow">
-              <div class="edits__arrow-move"></div>
+              <div class="edits__arrow-move arrow-move"></div>
             </div>
             <div class="edits__slider edits-slider swiper">
               <div class="edits-slider__wrapper swiper-wrapper">
@@ -203,6 +203,58 @@
                 </figure>
               </li>
             </ul>
+          </div>
+        </section>
+        <div class="section-divider"></div>
+        <section class="contacts">
+          <div class="contacts__container">
+            <h2 class="contacts__title title">I am ready to consult you</h2>
+            <div class="contacts__body">
+              <form action="#" class="contacts__form form-contacts" method="post">
+                <div class="form-contacts__item">
+                  <label for="name" class="form-contacts__label">My name is</label>
+                  <input
+                    class="form-contacts__input"
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Name"
+                    required
+                    autocomplete="name"
+                  />
+                </div>
+                <div class="form-contacts__item">
+                  <label for="message" class="form-contacts__label">i am interested in</label>
+                  <textarea class="form-contacts__input" id="message" name="message" placeholder="message" required></textarea>
+                </div>
+                <button class="form-contacts__button">send</button>
+              </form>
+              <ul class="contacts__info info-contacts">
+                <li class="info-contacts__item">
+                  <a href="tel:+92455478112" class="info-contacts__link info-contacts__link--phone">+92 455 478 112</a>
+                </li>
+                <li class="info-contacts__item">
+                  <a
+                    href="https://www.google.com/maps/place/Defence+Phase+3,+Lahore,+Pakistan"
+                    target="_blank"
+                    rel="noopener"
+                    class="info-contacts__link info-contacts__link--location"
+                  >
+                    Defence Phase 3, Lahore, Pakistan
+                  </a>
+                  <a href="tel:+92455478112" class="info-contacts__link info-contacts__link--phone">+92 455 478 112</a>
+                </li>
+                <li class="info-contacts__item">
+                  <a href="mailto:videoeditor@gmail.com" class="info-contacts__link info-contacts__link--emal">
+                    videoeditor@gmail.com
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <a href="#" class="contacts__up">
+              <span class="contacts__label-up">Go back to the top</span>
+              <div class="contacts__icon-up arrow-move"></div>
+            </a>
           </div>
         </section>
       </main>

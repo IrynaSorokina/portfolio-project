@@ -49,3 +49,31 @@
     }
   }
 }
+
+.arrow-move {
+  position: relative;
+  inset-inline-end: 0;
+  inline-size: toRem(200);
+  block-size: toRem(38);
+  background: -webkit-gradient(linear, left top, right top, from(#f00), color-stop(48.9%, #42ff00), to(#2400ff))
+    no-repeat;
+  background: linear-gradient(90deg, rgb(102, 61, 61) 0%, #42ff00 48.9%, #2400ff 100%) no-repeat;
+  -webkit-mask-image: url(../img/edits/arrow-mask.svg);
+  mask-image: url(../img/edits/arrow-mask.svg);
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-animation: anim-arrow 2s linear infinite 2s;
+  animation: anim-arrow 2s linear infinite 2s;
+}
+@keyframes anim-arrow {
+  0% {
+    background-position: toRem(-200);
+  }
+  100% {
+    background-position: toRem(200);
+  }
+}
