@@ -12,6 +12,7 @@
     inline-size: 100%;
     @include adaptiveValue(" min-height", 150, 90, 0, $containerWidth, 991.98);
     background: rgba(0, 0, 0, 0.8);
+    z-index: -1;
   }
   // .header__container
   &__container {
@@ -37,7 +38,7 @@
 .menu {
   display: flex;
   gap: toRem(15);
-  @media (max-width: $tablet) {
+  @media (max-width:$tablet){
     order: 2;
   }
   // .menu__icon
