@@ -4,12 +4,61 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target.closest(".icon-menu")) {
       document.documentElement.classList.toggle("menu-open");
     }
+
+    //========================================================================================================================================================
+
+    // Плавний скролл
+    const gotoLink = e.target.closest("[data-goto]");
+    if (gotoLink) {
+      e.preventDefault();
+      const selector = gotoLink.dataset.goto;
+      const targetSection = document.querySelector(selector);
+
+      if (targetSection) {
+        const headerHeight = document.querySelector("header.header")?.offsetHeight || 0;
+        const targetPosition = targetSection.getBoundingClientRect().top + window.scrollY - headerHeight;
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: "smooth",
+        });
+
+        // Закриваємо бургер-меню після кліку
+        document.documentElement.classList.remove("menu-open");
+      }
+    }
   });
+
+  //========================================================================================================================================================
+
+
+
+  emailjs.init("pyCGevbI30xmjskvz"); // заміни на свій publicKey
+
+  const form = document.querySelector(".form-contacts");
+  const status = document.createElement("div");
+  status.className = "form-status";
+  form.appendChild(status);
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm("service_a030p48", "template_d8caxxh", form)
+      .then(() => {
+        status.textContent = "✅ Лист успішно надіслано!";
+        form.reset();
+      })
+      .catch((error) => {
+        status.textContent = "❌ Помилка: " + error.text;
+      });
+  });
+  //========================================================================================================================================================
 
   let swiperEdits;
   let currentMode = "mouse"; // поточний режим: "mouse" або "keyboard"
 
-  // 1️⃣ Універсальна функція ініціалізації
+  //  Універсальна функція ініціалізації
   function initSwiper(loop = true) {
     if (swiperEdits) swiperEdits.destroy(true, true); // знищуємо попередній інстанс
     swiperEdits = new Swiper(".edits__slider", {
@@ -32,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Стартуємо з loop: true (звичайна навігація)
   initSwiper(true);
 
-  // 2️⃣ Перехід на клавіатуру (Tab)
+  // Перехід на клавіатуру (Tab)
   document.addEventListener("keydown", (e) => {
     if (e.key === "Tab" && currentMode !== "keyboard") {
       currentMode = "keyboard";
@@ -40,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // 3️⃣ Повернення до миші або тачу
+  //  Повернення до миші або тачу
   function backToMouse() {
     if (currentMode !== "mouse") {
       currentMode = "mouse";
