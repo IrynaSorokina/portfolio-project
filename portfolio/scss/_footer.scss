@@ -1,0 +1,12 @@
+.footer {
+  @media (min-width: toRem(450)){
+    display: none;
+  }
+		// .footer__container
+		&__container {
+      padding-block: toRem(40) toRem(70);
+    }
+		// .footer__social
+		&__social {}
+}
+
