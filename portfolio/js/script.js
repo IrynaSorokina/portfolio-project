@@ -31,9 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //========================================================================================================================================================
 
-
-
-  emailjs.init("pyCGevbI30xmjskvz"); // заміни на свій publicKey
+  emailjs.init("pyCGevbI30xmjskvz"); 
 
   const form = document.querySelector(".form-contacts");
   const status = document.createElement("div");
@@ -46,11 +44,11 @@ document.addEventListener("DOMContentLoaded", () => {
     emailjs
       .sendForm("service_a030p48", "template_d8caxxh", form)
       .then(() => {
-        status.textContent = "✅ Лист успішно надіслано!";
+        status.textContent = "✅ Message sent successfully!";
         form.reset();
       })
       .catch((error) => {
-        status.textContent = "❌ Помилка: " + error.text;
+        status.textContent = "❌ Error: " + error.text;
       });
   });
   //========================================================================================================================================================
